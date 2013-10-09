@@ -52,3 +52,6 @@ alias x2c="xclip -selection clipboard"
 alias x2p="xclip -selection primary"
 function scrn() { echo $DISPLAY > ~/.xdisplay; screen -DR ;}
 function xpath2p() { OUT=`readlink -f $@`; echo $OUT | xclip; echo Xcopied $OUT to primary selection ;}
+
+# Stop prompt for git password
+unset SSH_ASKPASS
