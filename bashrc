@@ -21,6 +21,10 @@ if [ -t 0 ]; then   # only run if stdin is a terminal ]
         stty "$STTYOPTS"
     }
     alias vi='vim'
+    set -o vi
+    bind -x '"\C-k": ls'
+    bind -x '"\C-f": fg %'
+    PS1='\[\e[32m\]\u @ \h \[\e[33m\]\w \[\e[0m\]'
 fi
 
 # User specific aliases and functions
