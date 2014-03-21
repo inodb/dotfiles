@@ -42,3 +42,4 @@ bind @ select 12
 bind \# select 13
 bind $ select 14
 bind % select 15
+source /home/idb/github/dotfiles/screenrc

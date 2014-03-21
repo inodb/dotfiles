@@ -1,11 +1,4 @@
-set bg=dark
-set autoindent
-set expandtab
-set tw=79 sw=4 ts=4
-set autoindent
-set number
-set hlsearch
-
+" vi:syntax=vim
 "Formatting for c++"
 autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -pA8s4
 
@@ -117,12 +110,32 @@ au BufRead,BufNewFile Snakefile set syntax=python
 " let n=[1] | s/^I/\=map(n,'v:val+1')/g
 
 " Error map
-nnoremap <Leader>p :cp<CR>
-nnoremap <Leader>n :cn<CR>
+"nnoremap <Leader>p :cp<CR>
+"nnoremap <Leader>n :cn<CR>
 
 " Buffer map 
-nnoremap  :bn<CR>
-nnoremap  :bp<CR>
+"nnoremap  :bn<CR>
+"nnoremap  :bp<CR>
 
 " Pymode 
 let g:pymode_lint_ignore = "E501,E127,E128,E203"
+
+
+" CtrlP
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>f :CtrlP<CR>
+
+" NERDTree
+nnoremap <Leader>n :NERDTreeToggle<CR>
+" Tagbar
+nnoremap <Leader>t :TagbarToggle<CR>
+
+" Settings at the bottom, smth weird with vimrc no proper syntax colors (CtrlP maybe)?
+set bg=dark
+set backspace=indent,eol,start " backspace over everything in insert mode "
+set autoindent
+set expandtab
+set tw=79 sw=4 ts=4
+set autoindent
+set number
+set hlsearch

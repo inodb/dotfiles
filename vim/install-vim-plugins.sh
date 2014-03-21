@@ -5,8 +5,27 @@ curl -Sso ~/.vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 cd ~/.vim/bundle
-git clone https://github.com/fholgado/minibufexpl.vim
-git clone https://github.com/scrooloose/nerdtree
-git clone https://github.com/klen/python-mode
-git clone https://github.com/majutsushi/tagbar
-git clone https://github.com/Raimondi/delimitMate
+if [[ ! -d minibufexpl.vim ]]; then
+    git clone https://github.com/fholgado/minibufexpl.vim \
+        && echo "minibufexpl.vim installed"
+fi
+if [[ ! -d nerdtree ]]; then
+    git clone https://github.com/scrooloose/nerdtree \
+        && echo "nerdtree installed"
+fi
+if [[ ! -d python-mode ]]; then
+    git clone https://github.com/klen/python-mode \
+        && echo "python-mode installed"
+fi
+if [[ ! -d tagbar ]]; then
+    git clone https://github.com/majutsushi/tagbar \
+        && echo "tagbar installed"
+fi
+if [[ ! -d delimitMate ]]; then
+    git clone https://github.com/Raimondi/delimitMate \
+        && echo "delimitMate installed"
+fi
+if [[ ! -d ctrlp.vim ]]; then
+    git clone https://github.com/kien/ctrlp.vim \
+        && echo "ctrlp.vim installed"
+fi

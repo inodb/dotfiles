@@ -1,3 +1,4 @@
+# vi:syntax=sh
 # Append commands to history immediately (for screen)
 shopt -s histappend                                  
 HISTSIZE=10000000
@@ -16,28 +17,17 @@ if [ -t 0 ]; then   # only run if stdin is a terminal ]
     {
         local STTYOPTS="$(stty --save)"
         stty stop '' -ixoff
-        command vim "$@"
+        command vim -u ~/.vimrc "$@"
         stty "$STTYOPTS"
     }
-    # bash
-    # No ttyctl, so we need to save and then restore terminal settings
-    vi()
-    {
-        local STTYOPTS="$(stty --save)"
-        stty stop '' -ixoff
-        command vim "$@"
-        stty "$STTYOPTS"
-    }
-    set -o vi
-    #bind -x '"\C-k": ls'
-    bind -x '"\C-f": fg %'
-    PS1='\[\e[32m\]\u @ \h \[\e[33m\]\w \[\e[0m\]'
+    alias vi='vim'
 fi
 
 # User specific aliases and functions
 alias cgrep="grep --color=always"
 alias cless="less -R"
 alias lh='ls -lh'
+alias ll='ls -l'
 alias dh='du -h'
 function viprog() { vi `which $@` ;}
 
