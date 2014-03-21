@@ -26,6 +26,7 @@ fi
 # User specific aliases and functions
 alias cgrep="grep --color=always"
 alias cless="less -R"
+alias ls="ls --color=auto"
 alias lh='ls -lh'
 alias ll='ls -l'
 alias dh='du -h'
