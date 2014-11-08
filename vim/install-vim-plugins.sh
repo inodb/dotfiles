@@ -1,8 +1,9 @@
 #!/bin/bash
 # pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -Sso ~/.vim/autoload/pathogen.vim \
-    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+    https://tpo.pe/pathogen.vim && \
+    echo "pathogen installed"
 
 cd ~/.vim/bundle
 if [[ ! -d minibufexpl.vim ]]; then
