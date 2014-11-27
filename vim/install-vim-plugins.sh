@@ -1,7 +1,7 @@
 #!/bin/bash
 # pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -Sso ~/.vim/autoload/pathogen.vim \
+curl -LSso ~/.vim/autoload/pathogen.vim \
     https://tpo.pe/pathogen.vim && \
     echo "pathogen installed"
 
