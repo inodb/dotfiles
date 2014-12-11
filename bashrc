@@ -53,10 +53,10 @@ shopt -s extglob
 # Screen X for xclip
 # Login with scrn, which echoes DISPLAY to ~/.xdisplay
 # DISPLAY is set to the contents of ~/.xdisplay before every run
-alias x2c="xclip -selection clipboard"
-alias x2p="xclip -selection primary"
+alias xc="xclip -sel clip"
+alias xco="xclip -o -sel clip"
 function scrn() { echo $DISPLAY > ~/.xdisplay; screen -DR ;}
-function xpath2p() { OUT=`readlink -f $@`; echo $OUT | xclip; echo Xcopied $OUT to primary selection ;}
+function xpathc() { OUT=`readlink -f $@`; echo $OUT | xclip -sel clip; echo Xcopied $OUT to primary selection ;}
 
 # Stop prompt for git password
 unset SSH_ASKPASS
