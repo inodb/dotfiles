@@ -56,7 +56,7 @@ shopt -s extglob
 alias xc="xclip -sel clip"
 alias xco="xclip -o -sel clip"
 function scrn() { echo $DISPLAY > ~/.xdisplay; screen -DR ;}
-function xpathc() { OUT=`readlink -f $@`; echo $OUT | xclip -sel clip; echo Xcopied $OUT to primary selection ;}
+function xpathc() { OUT=`readlink -f $@`; echo $OUT | xclip -sel clip; echo Xcopied $OUT to clipboard;}
 
 # Stop prompt for git password
 unset SSH_ASKPASS
