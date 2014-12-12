@@ -60,3 +60,13 @@ function xpathc() { OUT=`readlink -f $@`; echo $OUT | xclip -sel clip; echo Xcop
 
 # Stop prompt for git password
 unset SSH_ASKPASS
+
+# wait for any process, not just child
+# http://stackoverflow.com/questions/1058047
+anywait() {
+    for pid in "$@"; do
+        while kill -0 "$pid"; do
+            sleep 0.5
+        done
+    done
+}
