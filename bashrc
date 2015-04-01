@@ -8,13 +8,15 @@
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups 
 # Append history
 shopt -s histappend                                  
 if [ -n "${PROMPT_COMMAND:+1}" ]                     
 then                                                 
-    PROMPT_COMMAND="${PROMPT_COMMAND};history -a"    
+    PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 else                                                 
-    PROMPT_COMMAND="history -a"                      
+    PROMPT_COMMAND="history -a; history -c; history -r"
 fi                                                   
 # /Eternal bash history.
 # ---------------------
