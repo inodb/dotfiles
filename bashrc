@@ -16,7 +16,7 @@ if [ -n "${PROMPT_COMMAND:+1}" ]
 then                                                 
     PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 else                                                 
-    PROMPT_COMMAND="history -a; history -c; history -r"
+    PROMPT_COMMAND="history -a; history -c; history -r;"
 fi                                                   
 # /Eternal bash history.
 # ---------------------
