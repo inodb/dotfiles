@@ -76,4 +76,15 @@ anywait() {
 }
 
 # finds files in directory ($1) and greps for ($2)
-grep_files_in_dir() { find $0 -type f | xargs grep $1; }
+grep_files_in_dir() { find $1 -type f | xargs grep --color=always $2; }
+
+# show access rights over entire path $1
+# https://gist.github.com/inodb/8470322
+rightpath() {
+    path=""
+    for d in `readlink -f $1 | tr / " "`
+        do
+            path="$path/$d"
+            stat -c "%A %a %U %G %n" $path
+        done | column -t
+}
