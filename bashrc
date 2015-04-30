@@ -45,6 +45,8 @@ alias cless="less -R"
 alias ls="ls --color=auto"
 alias lh='ls -lh'
 alias ll='ls -l'
+alias llt='ls -lt'
+alias llth='ls -lth'
 alias dh='du -h'
 function viprog() { vi `which $@` ;}
 
@@ -72,3 +74,6 @@ anywait() {
         done
     done
 }
+
+# finds files in directory ($1) and greps for ($2)
+grep_files_in_dir() { find $0 -type f | xargs grep $1; }
