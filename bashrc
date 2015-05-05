@@ -88,3 +88,7 @@ rightpath() {
             stat -c "%A %a %U %G %n" $path
         done | column -t
 }
+
+count_headers_in_file() {
+    head -1 $1 | py -l '[list(enumerate(r.split())) for r in l]'
+}
