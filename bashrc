@@ -92,3 +92,5 @@ rightpath() {
 count_headers_in_file() {
     head -1 $1 | py -l '[list(enumerate(r.split())) for r in l]'
 }
+
+alias urlencode="python -c 'import sys, urllib; print urllib.quote(sys.stdin.read())'"
