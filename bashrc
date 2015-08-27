@@ -94,3 +94,4 @@ count_headers_in_file() {
 }
 
 alias urlencode="python -c 'import sys, urllib; print urllib.quote(sys.stdin.read())'"
+alias vjson="python -m json.tool | pygmentize -g"
