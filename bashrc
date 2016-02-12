@@ -95,3 +95,11 @@ count_headers_in_file() {
 
 alias urlencode="python -c 'import sys, urllib; print urllib.quote(sys.stdin.read())'"
 alias vjson="python -m json.tool | pygmentize -g"
+
+# http://stackoverflow.com/questions/21416189
+replace_key_value_tsv_in_tsv() {
+    awk -v FS='\t' -v OFS='\t' '
+        NR==FNR {dict[$1]=$2; next}
+        {for (i=1; i<=NF; i++) if ($i in dict) $i=dict[$i]; print}
+    ' $1 $2
+}
