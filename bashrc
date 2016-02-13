@@ -37,6 +37,9 @@ if [ -t 0 ]; then   # only run if stdin is a terminal ]
     bind -x '"\C-k": ls'
     bind -x '"\C-f": fg %'
     PS1='\[\e[32m\]\u @ \h \[\e[33m\]\w \[\e[0m\]'
+    # bash-git-prompt features (needs to be installed)
+    GIT_PROMPT_START=$PS1
+    GIT_PROMPT_THEME=Chmike
 fi
 
 # User specific aliases and functions

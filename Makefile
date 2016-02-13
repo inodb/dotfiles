@@ -1,5 +1,7 @@
 SHELL := /bin/bash
 
+BASH_GIT_PROMPT_DIR ?= ~/git/bash-git-prompt
+
 installrc: _bashrc _vimrc _tmuxconf _screenrc
 
 _bashrc: bashrc
@@ -37,4 +39,14 @@ _screenrc: screenrc
 installvim: vim/install-vim-plugins.sh
 	./vim/install-vim-plugins.sh
 
-.PHONY: installrc installvim _bashrc _vimrc _tmux.conf _screenrc
+installbashgitprompt:
+	if [[ -f ~/.bashrc ]] && $$(grep -q "source $(BASH_GIT_PROMPT_DIR)/gitprompt.sh" ~/.bashrc); then \
+		echo "bash-git-prompt already installed"; \
+	else \
+		git clone https://github.com/magicmonty/bash-git-prompt $(BASH_GIT_PROMPT_DIR); \
+		echo "source $(BASH_GIT_PROMPT_DIR)/gitprompt.sh" >> ~/.bashrc; \
+		echo "bash-git-prompt installed"; \
+	fi
+
+
+.PHONY: installrc installvim installbashgitprompt _bashrc _vimrc _tmux.conf _screenrc
