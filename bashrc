@@ -8,8 +8,6 @@
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
-# Avoid duplicates
-export HISTCONTROL=ignoredups:erasedups 
 # Append history
 shopt -s histappend                                  
 if [ -n "${PROMPT_COMMAND:+1}" ]                     
