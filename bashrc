@@ -38,6 +38,7 @@ if [ -t 0 ]; then   # only run if stdin is a terminal ]
     # bash-git-prompt features (needs to be installed)
     GIT_PROMPT_START=$PS1
     GIT_PROMPT_THEME=Chmike
+    GIT_PROMPT_FETCH_REMOTE_STATUS=0
 fi
 
 # User specific aliases and functions
