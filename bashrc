@@ -39,6 +39,7 @@ if [ -t 0 ]; then   # only run if stdin is a terminal ]
     GIT_PROMPT_START=$PS1
     GIT_PROMPT_THEME=Chmike
     GIT_PROMPT_FETCH_REMOTE_STATUS=0
+    GIT_PROMPT_SHOW_UNTRACKED_FILES=no
 fi
 
 # User specific aliases and functions
