@@ -98,6 +98,7 @@ count_headers_in_file() {
 
 alias urlencode="python -c 'import sys, urllib; print urllib.quote(sys.stdin.read())'"
 alias vjson="python -m json.tool | pygmentize -g"
+alias rlf="readlink -f"
 
 # http://stackoverflow.com/questions/21416189
 replace_key_value_tsv_in_tsv() {
