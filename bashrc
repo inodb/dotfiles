@@ -107,3 +107,10 @@ replace_key_value_tsv_in_tsv() {
         {for (i=1; i<=NF; i++) if ($i in dict) $i=dict[$i]; print}
     ' $1 $2
 }
+
+alias tawk="awk -vFS='\t' -vOFS='\t'"
+
+# yaml2json
+yaml2json() {
+    cat $1 | python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'
+}
