@@ -110,8 +110,8 @@ au BufRead,BufNewFile Snakefile set syntax=python
 " let n=[1] | s/^I/\=map(n,'v:val+1')/g
 
 " Error map
-"nnoremap <Leader>p :cp<CR>
-"nnoremap <Leader>n :cn<CR>
+nnoremap <Leader>p :cp<CR>
+nnoremap <Leader>n :cn<CR>
 
 " Buffer map 
 "nnoremap  :bn<CR>
@@ -122,13 +122,35 @@ let g:pymode_lint_ignore = "E501,E127,E128,E203"
 
 
 " CtrlP
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>f :CtrlP<CR>
+nnoremap  :CtrlPBuffer<CR>
 
 " NERDTree
-nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>t :NERDTreeToggle<CR>
 " Tagbar
-nnoremap <Leader>t :TagbarToggle<CR>
+" nnoremap <Leader>t :TagbarToggle<CR>
+
+" GitFiles fugitive
+nnoremap <Leader>f :GitFiles<CR>
+
+" Jump to line in open buffer FZF
+nnoremap  :Lines!<CR>
+
+" Fancy status line requires syntastic and fugitive
+" from https://github.com/spf13/spf13-vim/blob/master/.vimrc
+if has('statusline')
+  set laststatus=2
+  " Broken down into easily includeable segments
+  set statusline=%<%f\    " Filename
+  set statusline+=%w%h%m%r " Options
+  set statusline+=%{fugitive#statusline()} "  Git Hotness
+  set statusline+=\ [%{&ff}/%Y]            " filetype
+  set statusline+=\ [%{getcwd()}]          " current dir
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_enable_signs=1
+  set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
 
 " Settings at the bottom, smth weird with vimrc no proper syntax colors (CtrlP maybe)?
 set bg=dark

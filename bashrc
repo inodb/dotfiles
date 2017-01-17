@@ -114,3 +114,8 @@ alias tawk="awk -vFS='\t' -vOFS='\t'"
 yaml2json() {
     cat $1 | python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'
 }
+
+# ls-files for git
+lsf() {
+    git ls-files "*$1*"
+}
