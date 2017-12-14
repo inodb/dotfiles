@@ -25,7 +25,11 @@ if [ -t 0 ]; then   # only run if stdin is a terminal ]
     # No ttyctl, so we need to save and then restore terminal settings
     vim()
     {
-        local STTYOPTS="$(stty --save)"
+        if [[ "$(uname)" = "Darwin" ]]; then
+            local STTYOPTS="$(stty -g)"
+        else
+            local STTYOPTS="$(stty --save)"
+        fi
         stty stop '' -ixoff
         command vim -u ~/.vimrc "$@"
         stty "$STTYOPTS"
