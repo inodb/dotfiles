@@ -30,3 +30,17 @@ if [[ ! -d ctrlp.vim ]]; then
     git clone https://github.com/kien/ctrlp.vim \
         && echo "ctrlp.vim installed"
 fi
+if [[ ! -d vimproc.vim ]]; then
+    git clone https://github.com/Shougo/vimproc.vim \
+        && echo "vimproc.vim installed"
+fi
+if [[ ! -d tsuquyomi ]]; then
+    git clone https://github.com/Quramy/tsuquyomi \
+        && echo "tsuquyomi installed"
+fi
+if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+        && echo "vim-plug installed"
+
+fi
