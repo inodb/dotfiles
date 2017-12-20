@@ -130,3 +130,6 @@ if [[ "$(uname)" = "Darwin" ]]; then
     alias ls='gls --color'
     alias sort='gsort'
 fi
+
+[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
+[ -f $HOME/git/bash-git-prompt/gitprompt.sh ] && source $HOME/git/bash-git-prompt/gitprompt.sh
