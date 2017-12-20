@@ -16,6 +16,7 @@ then
 else                                                 
     PROMPT_COMMAND="history -a; history -c; history -r;"
 fi                                                   
+
 # /Eternal bash history.
 # ---------------------
 
@@ -123,3 +124,9 @@ yaml2json() {
 lsf() {
     git ls-files "*$1*"
 }
+
+# Mac specific aliases
+if [[ "$(uname)" = "Darwin" ]]; then
+    alias ls='gls --color'
+    alias sort='gsort'
+fi
