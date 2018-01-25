@@ -48,5 +48,11 @@ installbashgitprompt:
 		echo "bash-git-prompt installed"; \
 	fi
 
+installgitconfig:
+	if [[ -f ~/.gitconfig ]]; then \
+		echo "~/.gitconfig already installed"; \
+	else \
+		cp gitconfig ~/.gitconfig
+		echo "gitconfig installed to ~/.gitconfig"
 
 .PHONY: installrc installvim installbashgitprompt _bashrc _vimrc _tmux.conf _screenrc

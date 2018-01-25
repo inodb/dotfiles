@@ -30,6 +30,10 @@ set wildmenu
 " 'e'dit 'v'imrc)
 nmap <silent> ,ev :e ~/git/dotfiles/vimrc<cr>
 
+" Let's make it easy to edit this file (mnemonic for the key sequence is
+" 'e'dit 'b'ashrc)
+nmap <silent> ,eb :e ~/git/dotfiles/bashrc<cr>
+
 " And to source this file as well (mnemonic for the key sequence is
 " 's'ource 'v'imrc)
 nmap <silent> ,sv :so ~/git/dotfiles/vimrc<cr>
