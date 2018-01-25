@@ -28,11 +28,11 @@ set wildmenu
 
 " Let's make it easy to edit this file (mnemonic for the key sequence is
 " 'e'dit 'v'imrc)
-nmap <silent> ,ev :e $MYVIMRC<cr>
+nmap <silent> ,ev :e ~/git/dotfiles/vimrc<cr>
 
 " And to source this file as well (mnemonic for the key sequence is
 " 's'ource 'v'imrc)
-nmap <silent> ,sv :so $MYVIMRC<cr>
+nmap <silent> ,sv :so ~/git/dotfiles/vimrc<cr>
 
 " For taglist plugin
 filetype on
@@ -180,13 +180,17 @@ nnoremap <Leader>cl :ccl<CR>
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!{.git,dist}/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
 " requires plug + fzf
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'Quramy/vim-dtsm'
+Plug 'mhartington/vim-typings'
+Plug 'jason0x43/vim-js-indent'
 call plug#end()
 let g:syntastic_javascript_checkers = ['eslint']
 let g:tsuquyomi_disable_quickfix = 1

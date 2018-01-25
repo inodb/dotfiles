@@ -30,6 +30,16 @@ if [[ ! -d ctrlp.vim ]]; then
     git clone https://github.com/kien/ctrlp.vim \
         && echo "ctrlp.vim installed"
 fi
+if [[ ! -d vim-fugitive ]]; then
+    git clone https://github.com/tpope/vim-fugitive \
+        && vim -u NONE -c "helptags vim-fugitive/doc" -c q \
+        && echo "vim-fugitive installed "
+fi
+if [[ ! -d syntastic ]]; then
+   git clone --depth=1 https://github.com/vim-syntastic/syntastic.git \
+        && vim -u NONE -c "helptags syntastic/doc" -c q \
+        && echo "syntastic installed"
+fi
 if [[ ! -d vimproc.vim ]]; then
     git clone https://github.com/Shougo/vimproc.vim \
         && echo "vimproc.vim installed"
