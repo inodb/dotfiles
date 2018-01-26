@@ -4,3 +4,4 @@ brew install fzf
 $(brew --prefix)/opt/fzf/install
 brew install rg
 brew install z
+brew install gitify
