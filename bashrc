@@ -125,6 +125,12 @@ lsf() {
     git ls-files "*$1*"
 }
 
+# upload image
+upload_image() {
+    local png=${1};
+    curl -F "c=@$png" https://ptpb.pw/ | grep url | cut -d' ' -f2;
+}
+
 # Mac specific aliases
 if [[ "$(uname)" = "Darwin" ]]; then
     alias ls='gls --color'

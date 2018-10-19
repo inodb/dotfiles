@@ -174,6 +174,9 @@ set hlsearch
 nnoremap <Leader>co :copen<CR>
 nnoremap <Leader>cl :ccl<CR>
 
+" toggle paste
+set pastetoggle=<Leader>v
+
 " --column: Show column number
 " --line-number: Show line number
 " --no-heading: Do not show file headings in results
