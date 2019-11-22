@@ -52,7 +52,8 @@ installgitconfig:
 	if [[ -f ~/.gitconfig ]]; then \
 		echo "~/.gitconfig already installed"; \
 	else \
-		cp gitconfig ~/.gitconfig
-		echo "gitconfig installed to ~/.gitconfig"
+		cp gitconfig ~/.gitconfig; \
+		echo "gitconfig installed to ~/.gitconfig"; \
+	fi
 
 .PHONY: installrc installvim installbashgitprompt _bashrc _vimrc _tmux.conf _screenrc
