@@ -136,9 +136,6 @@ nnoremap <Leader>t :NERDTreeToggle<CR>
 " GitFiles fugitive
 nnoremap <Leader>f :GitFiles<CR>
 
-" fzf rggrp
-" https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
-nnoremap <Leader>g :Find<CR>
 
 " Jump to line in open buffer FZF
 nnoremap  :Lines!<CR>
@@ -206,3 +203,23 @@ nnoremap <Leader>p :e #<CR>
 set expandtab
 au BufRead,BufNewFile *.ts setfiletype typescript
 au BufRead,BufNewFile *.tsx setfiletype typescript
+
+
+" advanced fzf customization
+" Command for git grep
+" - fzf#vim#grep(command, with_column, [options], [fullscreen])
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+nnoremap <Leader>g :GGrep<CR>
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+nnoremap <Leader>r :Rg<CR>
+nnoremap <Leader>c :Commits<CR>
