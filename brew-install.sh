@@ -5,3 +5,5 @@ $(brew --prefix)/opt/fzf/install
 brew install rg
 brew install z
 brew install gitify
+brew install gh
+brew install kubectl
