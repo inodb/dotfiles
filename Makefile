@@ -1,8 +1,9 @@
 SHELL := /bin/bash
 
 BASH_GIT_PROMPT_DIR ?= ~/git/bash-git-prompt
+ZSH_GIT_PROMPT_DIR ?= ~/git/zsh-git-prompt
 
-installrc: _bashrc _vimrc _tmuxconf _screenrc
+installrc: _bashrc _vimrc _tmuxconf _screenrc _installrc
 
 _bashrc: bashrc
 	if [[ -f ~/.bashrc ]] && $$(grep -q "source $(shell pwd)/bashrc" ~/.bashrc); then \
@@ -10,6 +11,14 @@ _bashrc: bashrc
 	else \
 		echo "source $(shell pwd)/bashrc" >> ~/.bashrc; \
 		echo "bashrc installed"; \
+	fi
+
+_zshrc: zshrc
+	if [[ -f ~/.zshrc ]] && $$(grep -q "source $(shell pwd)/zshrc" ~/.zshrc); then \
+		echo "zshrc already installed"; \
+	else \
+		echo "source $(shell pwd)/zshrc" >> ~/.zshrc; \
+		echo "zshrc installed"; \
 	fi
 
 _vimrc: vimrc
@@ -48,6 +57,15 @@ installbashgitprompt:
 		echo "bash-git-prompt installed"; \
 	fi
 
+installzshgitprompt:
+	if [[ -f ~/.zshrc ]] && $$(grep -q "source $(ZSH_GIT_PROMPT_DIR)/zshrc.sh" ~/.zshrc); then \
+		echo "zsh-git-prompt already installed"; \
+	else \
+		git clone https://github.com/zsh-git-prompt/zsh-git-prompt $(ZSH_GIT_PROMPT_DIR); \
+		echo "source $(ZSH_GIT_PROMPT_DIR)/zshrc.sh" >> ~/.zshrc; \
+		echo "zsh-git-prompt installed"; \
+	fi
+
 installgitconfig:
 	if [[ -f ~/.gitconfig ]]; then \
 		echo "~/.gitconfig already installed"; \
@@ -56,4 +74,4 @@ installgitconfig:
 		echo "gitconfig installed to ~/.gitconfig"; \
 	fi
 
-.PHONY: installrc installvim installbashgitprompt _bashrc _vimrc _tmux.conf _screenrc
+.PHONY: installrc installvim installbashgitprompt installzshgitprompt _bashrc _vimrc _tmux.conf _screenrc _zshrc
