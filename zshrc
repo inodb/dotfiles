@@ -14,7 +14,6 @@ setopt share_history
 #update_history() {
 #    fc -R $HISTFILE
 #}
-setopt PROMPT_SUBST
 
 # User specific aliases and functions
 alias cgrep="grep --color=always"
