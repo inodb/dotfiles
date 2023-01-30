@@ -30,6 +30,7 @@ if [[ "$(uname)" = "Darwin" ]]; then
     alias sort='gsort'
 fi
 function viprog() { vi `which $@` ;}
+set -o vi
 
 setopt extended_glob
 
@@ -46,4 +47,4 @@ export YVM_DIR=/Users/debruiji/.yvm
 source ~/git/zsh-git-prompt/zshrc.sh
 GIT_PROMPT_EXECUTABLE="shell"
 NEWLINE=$'\n'
-PROMPT="%{$fg[white]%}%n%{$reset_color%}@%{$fg[white]%}%m %{$fg[yellow]%}%~ %{$reset_color%}$(git_super_status)${NEWLINE}%D{%L:%M} $ "
+PROMPT='%{$fg[white]%}%n%{$reset_color%}@%{$fg[white]%}%m %{$fg[yellow]%}%~ %{$reset_color%}$(git_super_status)${NEWLINE}%D{%L:%M} $ '
