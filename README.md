@@ -42,3 +42,19 @@ Just run:
 ```
 make installvim
 ```
+
+### Manual Installation Steps
+- Fish
+- oh my fish
+- [Lunar Vim](https://www.lunarvim.org/)
+
+#### Fish Configuration
+- In Iterm
+    - set custom shell to fish
+    - Font to Hack NF
+- In VSCode set custom shell to fish
+
+#### OSX Apps
+- Rectangle
+- Homerow
+- Cheatsheet

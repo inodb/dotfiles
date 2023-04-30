@@ -7,6 +7,9 @@ brew install z
 brew install gitify
 brew install gh
 brew install kubectl
+brew install neovim
+brew install starship
+brew install lsd
 
 # nerd fonts
 brew tap homebrew/cask-fonts
