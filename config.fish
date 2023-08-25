@@ -1,4 +1,10 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if test -e /opt/homebrew/bin/brew
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    if test -e "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
+        source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
+    end
+end
 
 # vim bindings
 fish_vi_key_bindings

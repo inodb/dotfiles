@@ -1,4 +1,5 @@
 brew install coreutils
+brew install gnu-sed
 brew install tmux
 brew install fzf
 $(brew --prefix)/opt/fzf/install
@@ -10,6 +11,7 @@ brew install kubectl
 brew install neovim
 brew install starship
 brew install lsd
+brew install watch
 
 # nerd fonts
 brew tap homebrew/cask-fonts
