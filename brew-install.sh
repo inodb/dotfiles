@@ -12,6 +12,7 @@ brew install neovim
 brew install starship
 brew install lsd
 brew install watch
+brew install mysql-client
 
 # nerd fonts
 brew tap homebrew/cask-fonts
