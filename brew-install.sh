@@ -13,6 +13,7 @@ brew install starship
 brew install lsd
 brew install watch
 brew install mysql-client
+brew install chrome-cli
 
 # nerd fonts
 brew tap homebrew/cask-fonts
