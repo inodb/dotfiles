@@ -48,7 +48,7 @@ function up-or-search -d "Depending on cursor position and current mode, either 
 end
 
 # cBioPortal work functions
-function cbio-frontend-pr -d "Checkout and setup a cBioPortal frontend PR"
+function cbio-frontend-pr -d "Checkout cBioPortal frontend PR in separate worktree (for parallel Claude Code sessions), build, and start SSL dev server on port 3{pr_number}"
     if test (count $argv) -ne 1
         echo "Usage: cbio-frontend-pr <pr_number>"
         return 1
