@@ -46,3 +46,32 @@ function up-or-search -d "Depending on cursor position and current mode, either 
             commandline -f up-line
     end
 end
+
+# cBioPortal work functions
+function cbio-frontend-pr -d "Checkout and setup a cBioPortal frontend PR"
+    if test (count $argv) -ne 1
+        echo "Usage: cbio-frontend-pr <pr_number>"
+        return 1
+    end
+
+    set pr_number $argv[1]
+    set worktree_path ~/git/cbioportal-frontend-prs/pr-$pr_number
+    set port 3$pr_number
+
+    # Clean up any existing worktree for this PR
+    git -C ~/git/cbioportal-frontend worktree remove $worktree_path 2>/dev/null; or true
+    git -C ~/git/cbioportal-frontend worktree prune
+
+    # Create worktree and checkout PR
+    git -C ~/git/cbioportal-frontend worktree add $worktree_path
+    and cd $worktree_path
+    and gh pr checkout $pr_number -R cbioportal/cbioportal-frontend
+    and echo "Setting up frontend environment..."
+    and nvm use v15.2.1
+    and set -x BRANCH_ENV master
+    and yarn install --frozen-lockfile
+    and yarn run buildDLL:dev
+    and yarn run buildModules
+    and echo "Starting dev server on port $port..."
+    and env PORT=$port yarn run startSSL
+end
